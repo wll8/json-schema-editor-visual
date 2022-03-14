@@ -448,9 +448,6 @@ class SchemaItem extends PureComponent {
                 <SettingOutlined type="setting" />
               </Tooltip>
             </span>
-            <span className="delete-item" onClick={this.handleDeleteItem}>
-              <CloseOutlined type="close" className="close" />
-            </span>
             {value.type === 'object' ? (
               <DropPlus prefix={prefix} name={name} />
             ) : (
@@ -460,6 +457,9 @@ class SchemaItem extends PureComponent {
                 </Tooltip>
               </span>
             )}
+            <span className="delete-item" onClick={this.handleDeleteItem}>
+              <CloseOutlined type="close" className="close" />
+            </span>
           </Col>
         </Row>
         <div className="option-formStyle">{mapping(prefixArray, value, showEdit, showAdv)}</div>

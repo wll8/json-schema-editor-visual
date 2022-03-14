@@ -96,8 +96,11 @@
 } */
 
 .json-schema-react-editor .adv-set {
-  padding-right: 8px;
   color: #00a854;
+}
+
+.ant-row-middle .col-item-setting>span {
+  padding-right: 8px;
 }
 
 .json-schema-react-editor .type-select-style {
