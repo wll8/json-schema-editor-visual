@@ -156,17 +156,13 @@
   flex-grow: 1;
 }
 .ant-row-middle .col-item-type {
-  width: 10%;
-  min-width: 60px;
-  max-width: 120px;
+  width: 110px;
 }
 .ant-row-middle .col-item-mock {
   min-width: 100px;
 }
 .ant-row-middle .col-item-setting {
-  width: 10%;
-  min-width: 60px;
-  max-width: 100px;
+  width: 90px;
 }
 .ant-row-middle .col-item-desc {
   width: 10%;

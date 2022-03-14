@@ -434,7 +434,7 @@ class jsonSchema extends React.Component {
                 </Col>
               )}
               {this.props.showTitle && (
-                <Col className="col-item col-item-mock">
+                <Col className="col-item col-item-tilte">
                   <Input
                     addonAfter={
                       <EditOutlined

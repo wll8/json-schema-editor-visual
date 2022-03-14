@@ -182,7 +182,7 @@ class SchemaArray extends PureComponent {
               </Col>
             )}
             {this.context.showTitle && (
-                <Col className="col-item col-item-mock">
+                <Col className="col-item col-item-tilte">
                   <Input
                     addonAfter={<EditOutlined type="edit" onClick={() => this.handleShowEdit('title')} />}
                     placeholder={LocaleProvider('title')}
@@ -422,7 +422,7 @@ class SchemaItem extends PureComponent {
           )}
 
           {this.context.showTitle && (
-            <Col className="col-item col-item-mock">
+            <Col className="col-item col-item-tilte">
               <Input
                 addonAfter={<EditOutlined type="edit" onClick={() => this.handleShowEdit('title')} />}
                 placeholder={LocaleProvider('title')}
