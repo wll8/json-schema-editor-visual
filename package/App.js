@@ -378,7 +378,7 @@ class jsonSchema extends React.Component {
           )}
           <Col span={this.props.showEditor ? 16 : 24} className="wrapper object-style">
             <Row type="flex" align="middle">
-              <Col span={8} className="col-item name-item col-item-name">
+              <Col className="col-item name-item col-item-name">
                 <Row type="flex" justify="space-around" align="middle">
                   <Col span={2} className="down-style-col">
                     {schema.type === 'object' ? (
@@ -408,7 +408,7 @@ class jsonSchema extends React.Component {
                   </Col>
                 </Row>
               </Col>
-              <Col span={3} className="col-item col-item-type">
+              <Col className="col-item col-item-type">
                 <Select
                   className="type-select-style"
                   onChange={e => this.changeType(`type`, e)}
@@ -424,7 +424,7 @@ class jsonSchema extends React.Component {
                 </Select>
               </Col>
               {this.props.isMock && (
-                <Col span={3} className="col-item col-item-mock">
+                <Col className="col-item col-item-mock">
                   <MockSelect
                     schema={schema}
                     showEdit={() => this.showEdit([], 'mock', schema.mock, schema.type)}
@@ -432,7 +432,7 @@ class jsonSchema extends React.Component {
                   />
                 </Col>
               )}
-              <Col span={this.props.isMock ? 4 : 5} className="col-item col-item-mock">
+              <Col className="col-item col-item-mock">
                 <Input
                   addonAfter={
                     <EditOutlined
@@ -447,7 +447,7 @@ class jsonSchema extends React.Component {
                   onChange={e => this.changeValue(['title'], e.target.value)}
                 />
               </Col>
-              <Col span={this.props.isMock ? 4 : 5} className="col-item col-item-desc">
+              <Col className="col-item col-item-desc">
                 <Input
                   addonAfter={
                     <EditOutlined
@@ -462,7 +462,7 @@ class jsonSchema extends React.Component {
                   onChange={e => this.changeValue(['description'], e.target.value)}
                 />
               </Col>
-              <Col span={2} className="col-item col-item-setting">
+              <Col className="col-item col-item-setting">
                 <span className="adv-set" onClick={() => this.showAdv([], this.props.schema)}>
                   <Tooltip placement="top" title={LocalProvider('adv_setting')}>
                     <SettingOutlined type="setting" />

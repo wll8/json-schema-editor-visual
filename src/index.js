@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 import 'antd/dist/antd.css';
 
 import '../dist/main.css'
-const jeditor = require('../dist/main');
-//const jeditor = require('../package/index.js');
+// const jeditor = require('../dist/main');
+const jeditor = require('../package/index.js');
 const mock = [
   { name: '字符串', mock: '@string' },
   { name: '自然数', mock: '@natural' },
@@ -21,34 +21,62 @@ const mock = [
 ];
 
 const JEditor1 = jeditor({mock: mock});
+const data = {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "books": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "user": {
+            "type": "string"
+          },
+          "view": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "string"
+          },
+          "author": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "user",
+          "view",
+          "type",
+          "discount",
+          "author",
+          "title"
+        ]
+      }
+    }
+  }
+}
 
 render(
   <div>
-    <a target="_blank" href="https://github.com/YMFE/json-schema-editor-visual">
-      <h1>JSON-Schema-Editor</h1>
-    </a>
-    <p style={{ fontSize: '16px' }}>
-      A json-schema editor of high efficient and easy-to-use, base on React.{' '}
-      <a target="_blank" href="https://github.com/YMFE/json-schema-editor-visual">
-        Github
-      </a>
-    </p>
-    <br />
-    <h3>
-      The tool has been used for open source api management platforms：{' '}
-      <a target="_blank" href="https://github.com/ymfe/yapi">
-        YApi
-      </a>
-    </h3>
-
-    <br />
-    <h2>Example:</h2>
-    <hr />
-
     <JEditor1
       showEditor={true}
-      isMock={false}
-      data={''}
+      isMock={true}
+      data={JSON.stringify(data)}
       onChange={e => {
         console.log('changeValue', e);
       }}
