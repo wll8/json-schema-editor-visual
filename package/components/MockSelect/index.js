@@ -1,5 +1,8 @@
 import React from 'react';
-import { Input, AutoComplete, Icon } from 'antd';
+import { Input, AutoComplete } from 'antd';
+import {
+  EditOutlined,
+} from '@ant-design/icons'
 import PropTypes from 'prop-types';
 const Option = AutoComplete.Option;
 import LocaleProvider from '../LocalProvider/index.js';
@@ -22,22 +25,20 @@ export default class MockSelect extends React.Component {
   render() {
     // const children = [];
     const { schema } = this.props;
-    const children = this.mock.map((item) => <Option key={item.mock}>{item.mock}</Option>);
+    const options = this.mock.map((item) => ({ value: item.mock }))
 
     return (
       <div>
         <AutoComplete
           className="certain-category-search"
           dropdownMatchSelectWidth={false}
-          dataSource={children}
           placeholder={LocaleProvider('mock')}
-          optionLabelProp="value"
-          filterOption={true}
+          options={options}
           value={schema.mock ? schema.mock.mock : ''}
           onChange={this.props.onChange}
           disabled={schema.type === 'object' || schema.type === 'array'}
         >
-          <Input addonAfter={<Icon type="edit" onClick={(e) => {e.stopPropagation(); this.props.showEdit()}} />} />
+          <Input addonAfter={<EditOutlined type="edit" onClick={(e) => {e.stopPropagation(); this.props.showEdit()}} />} />
         </AutoComplete>
       </div>
     );
