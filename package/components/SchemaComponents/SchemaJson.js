@@ -181,14 +181,16 @@ class SchemaArray extends PureComponent {
                 />
               </Col>
             )}
-            <Col className="col-item col-item-mock">
-              <Input
-                addonAfter={<EditOutlined type="edit" onClick={() => this.handleShowEdit('title')} />}
-                placeholder={LocaleProvider('title')}
-                value={items.title}
-                onChange={this.handleChangeTitle}
-              />
-            </Col>
+            {this.context.showTitle && (
+                <Col className="col-item col-item-mock">
+                  <Input
+                    addonAfter={<EditOutlined type="edit" onClick={() => this.handleShowEdit('title')} />}
+                    placeholder={LocaleProvider('title')}
+                    value={items.title}
+                    onChange={this.handleChangeTitle}
+                  />
+                </Col>
+            )}
             <Col className="col-item col-item-desc">
               <Input
                 addonAfter={<EditOutlined type="edit" onClick={() => this.handleShowEdit('description')} />}
@@ -221,6 +223,7 @@ class SchemaArray extends PureComponent {
 }
 
 SchemaArray.contextTypes = {
+  showTitle: PropTypes.bool,
   getOpenValue: PropTypes.func,
   Model: PropTypes.object,
   isMock: PropTypes.bool
@@ -418,14 +421,16 @@ class SchemaItem extends PureComponent {
             </Col>
           )}
 
-          <Col className="col-item col-item-mock">
-            <Input
-              addonAfter={<EditOutlined type="edit" onClick={() => this.handleShowEdit('title')} />}
-              placeholder={LocaleProvider('title')}
-              value={value.title}
-              onChange={this.handleChangeTitle}
-            />
-          </Col>
+          {this.context.showTitle && (
+            <Col className="col-item col-item-mock">
+              <Input
+                addonAfter={<EditOutlined type="edit" onClick={() => this.handleShowEdit('title')} />}
+                placeholder={LocaleProvider('title')}
+                value={value.title}
+                onChange={this.handleChangeTitle}
+              />
+            </Col>
+          )}
 
           <Col className="col-item col-item-desc">
             <Input
@@ -464,6 +469,7 @@ class SchemaItem extends PureComponent {
 }
 
 SchemaItem.contextTypes = {
+  showTitle: PropTypes.bool,
   getOpenValue: PropTypes.func,
   Model: PropTypes.object,
   isMock: PropTypes.bool

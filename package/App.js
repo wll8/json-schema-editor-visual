@@ -114,6 +114,7 @@ class jsonSchema extends React.Component {
 
   getChildContext() {
     return {
+      showTitle: this.props.showTitle,
       getOpenValue: keys => {
         return utils.getData(this.props.open, keys);
       },
@@ -432,21 +433,23 @@ class jsonSchema extends React.Component {
                   />
                 </Col>
               )}
-              <Col className="col-item col-item-mock">
-                <Input
-                  addonAfter={
-                    <EditOutlined
-                      type="edit"
-                      onClick={() =>
-                        this.showEdit([], 'title', this.props.schema.title)
-                      }
-                    />
-                  }
-                  placeholder={LocalProvider('title')}
-                  value={this.props.schema.title}
-                  onChange={e => this.changeValue(['title'], e.target.value)}
-                />
-              </Col>
+              {this.props.showTitle && (
+                <Col className="col-item col-item-mock">
+                  <Input
+                    addonAfter={
+                      <EditOutlined
+                        type="edit"
+                        onClick={() =>
+                          this.showEdit([], 'title', this.props.schema.title)
+                        }
+                      />
+                    }
+                    placeholder={LocalProvider('title')}
+                    value={this.props.schema.title}
+                    onChange={e => this.changeValue(['title'], e.target.value)}
+                  />
+                </Col>
+              )}
               <Col className="col-item col-item-desc">
                 <Input
                   addonAfter={
@@ -492,6 +495,7 @@ class jsonSchema extends React.Component {
 }
 
 jsonSchema.childContextTypes = {
+  showTitle: PropTypes.bool,
   getOpenValue: PropTypes.func,
   changeCustomValue: PropTypes.func,
   Model: PropTypes.object,
@@ -499,11 +503,16 @@ jsonSchema.childContextTypes = {
 };
 
 jsonSchema.propTypes = {
+  showTitle: PropTypes.bool,
   data: PropTypes.string,
   onChange: PropTypes.func,
   showEditor: PropTypes.bool,
   isMock: PropTypes.bool,
   Model: PropTypes.object
+};
+
+jsonSchema.defaultProps  = {
+  showTitle: true,
 };
 
 export default connect(state => ({

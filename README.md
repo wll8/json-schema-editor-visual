@@ -34,6 +34,7 @@ render(
 | `data` | string | null | the data of editor
 | `onChange`| function | null | 
 | `showEditor` | boolean | false | 
+| `showTitle` | boolean | true | 
 
 ## Links
 https://github.com/zyqwst/json-schema-editor-vue
