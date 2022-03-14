@@ -442,7 +442,7 @@ class jsonSchema extends React.Component {
                       }
                     />
                   }
-                  placeholder={'Title'}
+                  placeholder={LocalProvider('title')}
                   value={this.props.schema.title}
                   onChange={e => this.changeValue(['title'], e.target.value)}
                 />
@@ -457,7 +457,7 @@ class jsonSchema extends React.Component {
                       }
                     />
                   }
-                  placeholder={'description'}
+                  placeholder={LocalProvider('description')}
                   value={schema.description}
                   onChange={e => this.changeValue(['description'], e.target.value)}
                 />
